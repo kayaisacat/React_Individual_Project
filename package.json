@@ -10,9 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.7.2",
     "apollo-server": "^3.11.1",
     "graphql": "^15.8.0",
-    "mongoose": "^6.8.0"
+    "mongoose": "^6.8.0",
+    "react-router-dom": "^6.4.5",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

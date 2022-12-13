@@ -4,9 +4,6 @@ const mongoose = require('mongoose');
 
 const { MONGODB } = require('./config.js')
 
-//to delete 
-const User = require('./models/User');
-
 const typeDefs = require('./graphql/typeDefs')
 const resolvers = require('./graphql/resolvers')
 
