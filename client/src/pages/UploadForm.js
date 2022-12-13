@@ -1,31 +1,18 @@
-import { useMutation, gql } from '@apollo/client'
-
-const UPLOAD_FILE = gql`
-    Upload: GraphQLUpload
-    mutation uploadFile($file: Upload!) {
-        uploadFile(file: $file){
-            url
-        }
-    }
-`
+import axios from 'axios'
 
 export default function UploadForm () {
-    const [uploadFile] = useMutation(UPLOAD_FILE, {
-        update(_, result){
-            console.log(result);
-        },
-        onError(err){
-            console.log(err)
-        },
-        onCompleted: data=> console.log(data)
 
-    })
     const handleFileChange = (event) => {
         const file = event.target.files[0]
         console.log(file)
         if (!file) return // file or files?? 
         console.log('about to upload')
-        uploadFile({variables: {file}})
+        console.log(typeof(file))
+        const data = new FormData();
+        data.append('file', file, file.name);
+        axios.post('http://localhost:4000/upload-photos', data).then((res) => {
+            console.log(res.statusText);
+        });
     }
     return (
         <div>
